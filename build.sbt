@@ -11,4 +11,6 @@ libraryDependencies ++= Seq(
   "com.github.finagle" %% "finch-test" % "0.11.0-M2"
 )
 
-enablePlugins(JavaServerAppPackaging)
+enablePlugins(JavaAppPackaging)
+
+mainClass in Universal := Some("com.nico.infriends.core.app")
