@@ -19,6 +19,6 @@ object app {
       Ok("Hello, Word!")
     }
 
-    Await.ready(Http.server.serve(":9090", api.toServiceAs[Text.Plain]))
+    Await.ready(Http.server.serve(":80", api.toServiceAs[Text.Plain]))
   }
 }
