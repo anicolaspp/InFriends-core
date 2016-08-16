@@ -15,12 +15,14 @@ import io.finch._
 object app {
   def main(args: Array[String]) {
 
-    println(args)
+//    args.foreach(println)
+
+    val port = Some(System.getProperty("http.port")) getOrElse "8080"
 
     val api: Endpoint[String] = get("hello") {
       Ok("Hello, Word!")
     }
 
-    Await.ready(Http.server.serve(":8080", api.toServiceAs[Text.Plain]))
+    Await.ready(Http.server.serve(s":$port", api.toServiceAs[Text.Plain]))
   }
 }
