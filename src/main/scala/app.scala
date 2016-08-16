@@ -15,6 +15,8 @@ import io.finch._
 object app {
   def main(args: Array[String]) {
 
+    println(args)
+
     val api: Endpoint[String] = get("hello") {
       Ok("Hello, Word!")
     }

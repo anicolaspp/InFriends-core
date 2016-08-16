@@ -54,8 +54,8 @@
       <file leaf-file-name="app.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/app.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63508064">
-              <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.5141129">
+              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#79#110#0" expanded="true" />
@@ -922,12 +922,12 @@
       <created>1471370265473</created>
       <option name="number" value="Default" />
       <updated>1471370265473</updated>
-      <workItem from="1471370266666" duration="2250000" />
+      <workItem from="1471370266666" duration="2437000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2250000" />
+    <option name="totallyTimeSpent" value="2437000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="298" y="162" width="1414" height="873" extended-state="0" />
@@ -1001,8 +1001,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/app.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63508064">
-          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.5141129">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#79#110#0" expanded="true" />
