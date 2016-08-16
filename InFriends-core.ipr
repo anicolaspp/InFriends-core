@@ -135,6 +135,15 @@
         <root url="jar://$USER_HOME$/.ivy2/cache/com.chuusai/shapeless_2.11/srcs/shapeless_2.11-2.3.1-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="SBT: com.github.finagle:finch-argonaut_2.11:0.11.0-M2:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/com.github.finagle/finch-argonaut_2.11/jars/finch-argonaut_2.11-0.11.0-M2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/com.github.finagle/finch-argonaut_2.11/srcs/finch-argonaut_2.11-0.11.0-M2-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="SBT: com.github.finagle:finch-core_2.11:0.11.0-M2:jar">
       <CLASSES>
         <root url="jar://$USER_HOME$/.ivy2/cache/com.github.finagle/finch-core_2.11/jars/finch-core_2.11-0.11.0-M2.jar!/" />
@@ -142,6 +151,33 @@
       <JAVADOC />
       <SOURCES>
         <root url="jar://$USER_HOME$/.ivy2/cache/com.github.finagle/finch-core_2.11/srcs/finch-core_2.11-0.11.0-M2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="SBT: com.github.finagle:finch-test_2.11:0.11.0-M2:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/com.github.finagle/finch-test_2.11/jars/finch-test_2.11-0.11.0-M2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/com.github.finagle/finch-test_2.11/srcs/finch-test_2.11-0.11.0-M2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="SBT: com.github.julien-truffaut:monocle-core_2.11:1.1.0:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/com.github.julien-truffaut/monocle-core_2.11/jars/monocle-core_2.11-1.1.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/com.github.julien-truffaut/monocle-core_2.11/srcs/monocle-core_2.11-1.1.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="SBT: com.github.julien-truffaut:monocle-macro_2.11:1.1.0:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/com.github.julien-truffaut/monocle-macro_2.11/jars/monocle-macro_2.11-1.1.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/com.github.julien-truffaut/monocle-macro_2.11/srcs/monocle-macro_2.11-1.1.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="SBT: com.github.mpilquist:simulacrum_2.11:0.7.0:jar">
@@ -331,6 +367,15 @@
         <root url="jar://$USER_HOME$/.ivy2/cache/commons-lang/commons-lang/srcs/commons-lang-2.6-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="SBT: io.argonaut:argonaut_2.11:6.1:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/io.argonaut/argonaut_2.11/jars/argonaut_2.11-6.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/io.argonaut/argonaut_2.11/srcs/argonaut_2.11-6.1-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="SBT: io.catbird:catbird-util_2.11:0.5.0:jar">
       <CLASSES>
         <root url="jar://$USER_HOME$/.ivy2/cache/io.catbird/catbird-util_2.11/jars/catbird-util_2.11-0.5.0.jar!/" />
@@ -367,6 +412,15 @@
         <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/srcs/scala-parser-combinators_2.11-1.0.4-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="SBT: org.scala-lang.modules:scala-xml_2.11:1.0.2:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/bundles/scala-xml_2.11-1.0.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/srcs/scala-xml_2.11-1.0.2-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="SBT: org.scala-lang:scala-library:2.11.8:jar" type="Scala">
       <properties>
         <compiler-classpath>
@@ -392,6 +446,78 @@
         <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-reflect/srcs/scala-reflect-2.11.8-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="SBT: org.scala-sbt:test-interface:1.0:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-sbt/test-interface/jars/test-interface-1.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-sbt/test-interface/srcs/test-interface-1.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="SBT: org.scalacheck:scalacheck_2.11:1.12.5:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.scalacheck/scalacheck_2.11/jars/scalacheck_2.11-1.12.5.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.scalacheck/scalacheck_2.11/srcs/scalacheck_2.11-1.12.5-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="SBT: org.scalatest:scalatest_2.11:2.2.6:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.11/bundles/scalatest_2.11-2.2.6.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.11/srcs/scalatest_2.11-2.2.6-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="SBT: org.scalaz:scalaz-core_2.11:7.1.1:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.scalaz/scalaz-core_2.11/bundles/scalaz-core_2.11-7.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.scalaz/scalaz-core_2.11/srcs/scalaz-core_2.11-7.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="SBT: org.spire-math:jawn-argonaut_2.11:0.8.4:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.spire-math/jawn-argonaut_2.11/jars/jawn-argonaut_2.11-0.8.4.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.spire-math/jawn-argonaut_2.11/srcs/jawn-argonaut_2.11-0.8.4-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="SBT: org.spire-math:jawn-parser_2.11:0.8.4:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.spire-math/jawn-parser_2.11/jars/jawn-parser_2.11-0.8.4.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.spire-math/jawn-parser_2.11/srcs/jawn-parser_2.11-0.8.4-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="SBT: org.typelevel:catalysts-macros_2.11:0.0.2:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/catalysts-macros_2.11/jars/catalysts-macros_2.11-0.0.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/catalysts-macros_2.11/srcs/catalysts-macros_2.11-0.0.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="SBT: org.typelevel:catalysts-platform_2.11:0.0.2:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/catalysts-platform_2.11/jars/catalysts-platform_2.11-0.0.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/catalysts-platform_2.11/srcs/catalysts-platform_2.11-0.0.2-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="SBT: org.typelevel:cats-core_2.11:0.6.0:jar">
       <CLASSES>
         <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/cats-core_2.11/jars/cats-core_2.11-0.6.0.jar!/" />
@@ -399,6 +525,15 @@
       <JAVADOC />
       <SOURCES>
         <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/cats-core_2.11/srcs/cats-core_2.11-0.6.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="SBT: org.typelevel:cats-kernel-laws_2.11:0.6.0:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/cats-kernel-laws_2.11/jars/cats-kernel-laws_2.11-0.6.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/cats-kernel-laws_2.11/srcs/cats-kernel-laws_2.11-0.6.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="SBT: org.typelevel:cats-kernel_2.11:0.6.0:jar">
@@ -410,6 +545,15 @@
         <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/cats-kernel_2.11/srcs/cats-kernel_2.11-0.6.0-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="SBT: org.typelevel:cats-laws_2.11:0.6.0:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/cats-laws_2.11/jars/cats-laws_2.11-0.6.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/cats-laws_2.11/srcs/cats-laws_2.11-0.6.0-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="SBT: org.typelevel:cats-macros_2.11:0.6.0:jar">
       <CLASSES>
         <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/cats-macros_2.11/jars/cats-macros_2.11-0.6.0.jar!/" />
@@ -417,6 +561,15 @@
       <JAVADOC />
       <SOURCES>
         <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/cats-macros_2.11/srcs/cats-macros_2.11-0.6.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="SBT: org.typelevel:discipline_2.11:0.4:jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/discipline_2.11/jars/discipline_2.11-0.4.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.ivy2/cache/org.typelevel/discipline_2.11/srcs/discipline_2.11-0.4-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="SBT: org.typelevel:machinist_2.11:0.4.1:jar">
