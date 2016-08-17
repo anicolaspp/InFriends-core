@@ -16,4 +16,4 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0" % "test"
 
 enablePlugins(JavaAppPackaging)
 
-mainClass in Universal := Some("com.nico.infriends.core.app")
+mainClass in Universal := Some("com.nico.infriends.core.app") 
