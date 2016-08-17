@@ -18,13 +18,9 @@ import io.finch.circe._
 import com.nico.infriends.core.models.Person._
 
 
-  object app extends HelloApi
+object app extends HelloApi
   with MathApi
-  with Repository
-//  with TokenApi
-//  with Env {
-
-  {
+  with Repository {
 
   def main(args: Array[String]) {
     val port = Option(System.getProperty("http.port")) getOrElse "9080"
