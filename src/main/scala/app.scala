@@ -12,17 +12,26 @@ import io.finch._
 
 
 
-object app {
+object app extends Repository {
   def main(args: Array[String]) {
 
-//    args.foreach(println)
 
-    val port = Some(System.getProperty("http.port")) getOrElse "8080"
 
-    val api: Endpoint[String] = get("hello") {
-      Ok("Hello, Word!")
+    val port = Option(System.getProperty("http.port")) getOrElse "8080"
+
+    val api: Endpoint[String] = get("/hello") {
+      Ok(hello)
     }
 
     Await.ready(Http.server.serve(s":$port", api.toServiceAs[Text.Plain]))
   }
+}
+
+
+
+
+trait Repository {
+
+  def hello() = "Hello, Word!"
+
 }
