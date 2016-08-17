@@ -28,13 +28,13 @@ trait TokenApi {
 
     println(code)
 
-//    scalaj.http.Http("https://api.instagram.com/oauth/access_token").postForm(Seq(
-//      "client_id"     ->  "3e4dff94fc1e42c99544d271113a3773",
-//      "client_secret" ->  "4140e98fb6ab4f31bca333b1ab63cf64",
-//      "grant_type"    ->  "authorization_code",
-//      "redirect_uri"  ->  "http://infriends-core.herokuapp.com/push",
-//      "code"          ->  code
-//    )).asString
+    scalaj.http.Http("https://api.instagram.com/oauth/access_token").postForm(Seq(
+      "client_id"     ->  "3e4dff94fc1e42c99544d271113a3773",
+      "client_secret" ->  "4140e98fb6ab4f31bca333b1ab63cf64",
+      "grant_type"    ->  "authorization_code",
+      "redirect_uri"  ->  "http://infriends-core.herokuapp.com/push",
+      "code"          ->  code.head
+    )).asString
 
     Ok("OK")
   }
