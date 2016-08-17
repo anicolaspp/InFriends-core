@@ -19,7 +19,7 @@ object app extends Repository {
 
     val port = Option(System.getProperty("http.port")) getOrElse "8080"
 
-    val api: Endpoint[String] = get("/hello") {
+    val api: Endpoint[String] = get("hello") {
       Ok(hello)
     }
 
