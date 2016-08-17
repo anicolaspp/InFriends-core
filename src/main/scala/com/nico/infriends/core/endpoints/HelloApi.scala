@@ -10,6 +10,8 @@ import com.nico.infriends.core.repositories.Repository
 import com.twitter.finagle.http.Http
 import io.finch._
 
+import scala.util.Properties
+
 
 trait HelloApi { this: Repository =>
 
@@ -32,9 +34,9 @@ trait Env {
   object EnvImp {
     def apply(): EnvImp = {
 
-      val clientId =  sys.env.getOrElse("client_id", "")
-      val clientSecret = sys.env.getOrElse("client_secret", "")
-      val url = sys.env.getOrElse("redirect_uri", "")
+      val clientId =  Properties.envOrElse("client_id", "")
+      val clientSecret = Properties.envOrElse("client_secret", "")
+      val url = Properties.envOrElse("redirect_uri", "")
 
       new EnvImp(clientId , clientSecret, url)
     }
