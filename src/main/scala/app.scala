@@ -6,32 +6,27 @@
 package com.nico.infriends.core
 
 
+import com.nico.infriends.core.endpoints.{HelloApi, MathApi}
+import com.nico.infriends.core.models.Person
+import com.nico.infriends.core.repositories._
 import com.twitter.finagle.Http
 import com.twitter.util.Await
+import io.circe.{Json, Encoder}
 import io.finch._
+import io.finch.circe._
+
+import com.nico.infriends.core.models.Person._
 
 
+object app extends HelloApi
+  with MathApi
+  with Repository {
 
-object app extends Repository {
   def main(args: Array[String]) {
+    val port = Option(System.getProperty("http.port")) getOrElse "9080"
 
+    val api = helloApi :+: sum :+: getPerson
 
-
-    val port = Option(System.getProperty("http.port")) getOrElse "8080"
-
-    val api: Endpoint[String] = get("hello") {
-      Ok(hello)
-    }
-
-    Await.ready(Http.server.serve(s":$port", api.toServiceAs[Text.Plain]))
+    Await.ready(Http.server.serve(s":$port", api.toService))
   }
-}
-
-
-
-
-trait Repository {
-
-  def hello() = "Hello, Word!"
-
 }
