@@ -22,25 +22,6 @@ trait HelloApi { this: Repository =>
   }
 }
 
-trait TokenApi { this: Env =>
-
-  def pushToken: Endpoint[String] = get("push" :: param("code")) { code: String =>
-
-    println(code)
-
-    val res = scalaj.http.Http("https://api.instagram.com/oauth/access_token").postForm(Seq(
-      "client_id"     ->  this.env.clientId,
-      "client_secret" ->  this.env.clientSecret,
-      "grant_type"    ->  "authorization_code",
-      "redirect_uri"  ->  this.env.redirectURL,
-      "code"          ->  code
-    )).asString
-
-
-    Ok(res.body)
-  }
-}
-
 
 trait Env {
 
