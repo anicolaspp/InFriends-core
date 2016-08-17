@@ -18,16 +18,20 @@ import io.finch.circe._
 import com.nico.infriends.core.models.Person._
 
 
-object app extends HelloApi
+  object app extends HelloApi
   with MathApi
   with Repository
-  with TokenApi
-  with Env {
+//  with TokenApi
+//  with Env {
+
+  {
 
   def main(args: Array[String]) {
     val port = Option(System.getProperty("http.port")) getOrElse "9080"
 
-    val api = helloApi :+: sum :+: getPerson :+: pushToken
+    println(System.getenv("CLIENT_ID"))
+
+    val api = helloApi :+: sum :+: getPerson //:+: pushToken
 
     Await.ready(Http.server.serve(s":$port", api.toService))
   }
