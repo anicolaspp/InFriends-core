@@ -23,7 +23,7 @@ trait HelloApi { this: Repository =>
 
 trait TokenApi {
 
-  def pushToken: Endpoint[String] = get("push" :: param("CODE")) { code: String =>
+  def pushToken: Endpoint[String] = get("push" :: param("code")) { code: String =>
     println(code)
 
     Ok(code)
