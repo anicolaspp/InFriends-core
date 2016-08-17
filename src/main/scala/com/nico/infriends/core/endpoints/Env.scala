@@ -3,21 +3,19 @@ package com.nico.infriends.core.endpoints
 /**
   * Created by anicolaspp on 8/17/16.
   */
-trait Env {
+class Env(val clientId: String, val clientSecret: String, val redirectURL: String)
 
-  val env: EnvImp = EnvImp.apply()
+object Env {
 
-  class EnvImp(val clientId: String, val clientSecret: String, val redirectURL: String)
+  private var env = Env("", "", "")
 
-  object EnvImp {
-    def apply(): EnvImp = {
+  def apply(clientId: String, clientSecret: String, redirectURL: String) = {
 
-      val clientId =  System.getenv("CLIENT_ID")
-      val clientSecret = System.getenv("CLIENT_SECRET")
-      val url = System.getenv("URL")
+    env = new Env(clientId, clientSecret, redirectURL)
 
-      new EnvImp(clientId , clientSecret, url)
-    }
+    env
   }
+
+  def getEnv: Env = env
 
 }

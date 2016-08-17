@@ -20,14 +20,14 @@ import com.nico.infriends.core.models.Person._
 
 object app extends HelloApi
   with MathApi
-  with Repository {
+  with Repository
+  with TokenApi {
 
   def main(args: Array[String]) {
     val port = Option(System.getProperty("http.port")) getOrElse "9080"
+    Env(System.getenv("CLIENT_ID"), System.getenv("CLIENT_SECRET"), System.getenv("URL"))
 
-    println(System.getenv("CLIENT_ID"))
-
-    val api = helloApi :+: sum :+: getPerson //:+: pushToken
+    val api = helloApi :+: sum :+: getPerson :+: pushToken
 
     Await.ready(Http.server.serve(s":$port", api.toService))
   }
