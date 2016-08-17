@@ -6,6 +6,7 @@
 package com.nico.infriends.core
 package tests
 
+import com.nico.infriends.core.repositories.Repository
 import org.scalatest.{Matchers, FlatSpec}
 
 
