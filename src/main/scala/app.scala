@@ -6,7 +6,7 @@
 package com.nico.infriends.core
 
 
-import com.nico.infriends.core.endpoints.{HelloApi, MathApi}
+import com.nico.infriends.core.endpoints.{TokenApi, HelloApi, MathApi}
 import com.nico.infriends.core.models.Person
 import com.nico.infriends.core.repositories._
 import com.twitter.finagle.Http
@@ -20,12 +20,13 @@ import com.nico.infriends.core.models.Person._
 
 object app extends HelloApi
   with MathApi
-  with Repository {
+  with Repository
+  with TokenApi {
 
   def main(args: Array[String]) {
     val port = Option(System.getProperty("http.port")) getOrElse "9080"
 
-    val api = helloApi :+: sum :+: getPerson
+    val api = helloApi :+: sum :+: getPerson :+: pushToken
 
     Await.ready(Http.server.serve(s":$port", api.toService))
   }

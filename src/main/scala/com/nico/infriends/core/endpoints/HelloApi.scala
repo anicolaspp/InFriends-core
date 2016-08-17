@@ -20,3 +20,12 @@ trait HelloApi { this: Repository =>
     Ok(Person(id, id.hashCode().toString, 20))
   }
 }
+
+trait TokenApi {
+
+  def pushToken: Endpoint[String] = get("push" :: param("CODE")) { code: String =>
+    println(code)
+
+    Ok(code)
+  }
+}
