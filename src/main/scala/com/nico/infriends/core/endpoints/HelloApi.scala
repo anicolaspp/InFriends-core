@@ -25,21 +25,3 @@ trait HelloApi { this: Repository =>
 }
 
 
-trait Env {
-
-  val env: EnvImp = EnvImp.apply()
-
-  class EnvImp(val clientId: String, val clientSecret: String, val redirectURL: String)
-
-  object EnvImp {
-    def apply(): EnvImp = {
-
-      val clientId =  Properties.envOrElse("client_id", "")
-      val clientSecret = Properties.envOrElse("client_secret", "")
-      val url = Properties.envOrElse("redirect_uri", "")
-
-      new EnvImp(clientId , clientSecret, url)
-    }
-  }
-
-}
