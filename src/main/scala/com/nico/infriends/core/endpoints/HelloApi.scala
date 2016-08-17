@@ -22,23 +22,41 @@ trait HelloApi { this: Repository =>
   }
 }
 
-trait TokenApi {
+trait TokenApi { this: Env =>
 
-  def pushToken: Endpoint[String] = get("push" :: params("code")) { code: Seq[String] =>
+  def pushToken: Endpoint[String] = get("push" :: param("code")) { code: String =>
 
     println(code)
 
     val res = scalaj.http.Http("https://api.instagram.com/oauth/access_token").postForm(Seq(
-      "client_id"     ->  "3e4dff94fc1e42c99544d271113a3773",
-      "client_secret" ->  "4140e98fb6ab4f31bca333b1ab63cf64",
+      "client_id"     ->  this.env.clientId,
+      "client_secret" ->  this.env.clientSecret,
       "grant_type"    ->  "authorization_code",
-      "redirect_uri"  ->  "http://infriends-core.herokuapp.com/push",
-      "code"          ->  code.head
+      "redirect_uri"  ->  this.env.redirectURL,
+      "code"          ->  code
     )).asString
-
-
 
 
     Ok(res.body)
   }
+}
+
+
+trait Env {
+
+  val env: EnvImp = EnvImp.apply()
+
+  class EnvImp(val clientId: String, val clientSecret: String, val redirectURL: String)
+
+  object EnvImp {
+    def apply(): EnvImp = {
+
+      val clientId =  sys.env.getOrElse("client_id", "")
+      val clientSecret = sys.env.getOrElse("client_secret", "")
+      val url = sys.env.getOrElse("redirect_uri", "")
+
+      new EnvImp(clientId , clientSecret, url)
+    }
+  }
+
 }

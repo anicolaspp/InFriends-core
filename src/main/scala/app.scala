@@ -6,7 +6,7 @@
 package com.nico.infriends.core
 
 
-import com.nico.infriends.core.endpoints.{TokenApi, HelloApi, MathApi}
+import com.nico.infriends.core.endpoints.{Env, TokenApi, HelloApi, MathApi}
 import com.nico.infriends.core.models.Person
 import com.nico.infriends.core.repositories._
 import com.twitter.finagle.Http
@@ -21,7 +21,8 @@ import com.nico.infriends.core.models.Person._
 object app extends HelloApi
   with MathApi
   with Repository
-  with TokenApi {
+  with TokenApi
+  with Env {
 
   def main(args: Array[String]) {
     val port = Option(System.getProperty("http.port")) getOrElse "9080"
