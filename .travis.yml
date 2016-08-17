@@ -10,4 +10,4 @@ script:
   - sbt compile coverage test coverageReport
 
 after_success:
-  - pip install --user codecov && codecov
+  - bash <(curl -s https://codecov.io/bash)
