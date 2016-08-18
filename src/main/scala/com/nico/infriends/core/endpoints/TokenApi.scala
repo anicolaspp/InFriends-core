@@ -11,7 +11,7 @@ import com.twitter.finagle.http.Status
 
 trait TokenApi {
 
-  def loging: Endpoint[Unit] = get("redirect" :: "from") {
+  def loging: Endpoint[Unit] = get("login") {
     Output
         .unit(Status.Continue)
       .withHeader("Location" ->
