@@ -15,6 +15,11 @@ import io.circe.{Json, Encoder}
 import io.finch._
 import io.finch.circe._
 
+import com.twitter.finagle.http.{Request, Response}
+import com.twitter.finagle.Service
+
+import com.twitter.finagle.http.filter.Cors
+
 import com.nico.infriends.core.models.Person._
 
 
@@ -32,6 +37,14 @@ object app extends HelloApi
 
     val api = helloApi :+: sum :+: getPerson :+: pushToken :+: loging
 
-    Await.ready(Http.server.serve(s":$port", api.toService))
+    val policy: Cors.Policy = Cors.Policy(
+      allowsOrigin = _ => Some("*"),
+      allowsMethods = _ => Some(Seq("GET", "POST")),
+      allowsHeaders = _ => Some(Seq("Accept"))
+    )
+
+    val corsService = new Cors.HttpFilter(policy).andThen(api.toService)
+
+    Await.ready(Http.server.serve(s":$port", corsService))
   }
 }
