@@ -25,7 +25,10 @@ object app extends HelloApi
 
   def main(args: Array[String]) {
     val port = Option(System.getProperty("http.port")) getOrElse "9080"
-    Env(System.getenv("CLIENT_ID"), System.getenv("CLIENT_SECRET"), System.getenv("URL"))
+    val e = Env(System.getenv("CLIENT_ID"), System.getenv("CLIENT_SECRET"), System.getenv("URL"))
+
+    println("ENV")
+    println(e)
 
     val api = helloApi :+: sum :+: getPerson :+: pushToken
 
