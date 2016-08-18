@@ -30,7 +30,7 @@ object app extends HelloApi
     println("ENV")
     println(e)
 
-    val api = helloApi :+: sum :+: getPerson :+: pushToken
+    val api = helloApi :+: sum :+: getPerson :+: pushToken :+: loging
 
     Await.ready(Http.server.serve(s":$port", api.toService))
   }
