@@ -20,7 +20,7 @@ trait AuthApi {
         s"https://api.instagram.com/oauth/authorize/?client_id=${Env.getEnv.clientId}&redirect_uri=${Env.getEnv.redirectURL}&response_type=code")
   }
 
-  private def pushToken: Endpoint[Map[String, String]] = get("push" :: param("code")) { code: String =>
+  private def pushToken: Endpoint[String] = get("push" :: param("code")) { code: String =>
 
     println(code)
 
@@ -30,7 +30,7 @@ trait AuthApi {
       "grant_type"    ->  "authorization_code",
       "redirect_uri"  ->  Env.getEnv.redirectURL,
       "code"          ->  code
-    )).asParamMap
+    )).asString
 
 
     Ok(res.body)
