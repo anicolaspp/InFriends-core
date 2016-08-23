@@ -38,7 +38,7 @@ trait AuthApi {
         s"https://api.instagram.com/oauth/authorize/?client_id=${Env.getEnv.clientId}&redirect_uri=${Env.getEnv.redirectURL}&response_type=code")
   }
 
-  private def pushToken: Endpoint[Map[String, String]] = get("push" :: param("code")) { code: String =>
+  private def pushToken: Endpoint[String] = get("push" :: param("code")) { code: String =>
 
     println(code)
 
@@ -48,33 +48,33 @@ trait AuthApi {
       "grant_type"    ->  "authorization_code",
       "redirect_uri"  ->  Env.getEnv.redirectURL,
       "code"          ->  code
-    )).asParamMap
+    )).asString
 
 
-    val body = res.body
+//    val body = res.body
+//
+//    if (body.contains("access_token")) {
+//
+//      val userOption = body.get("user").foreach(u => {
+//
+//        println(u)
+//
+//
+//        val user = decode[User](u).getOrElse(User.empty)
+//
+//        val repo = AwsRepository.apply
+//
+//        repo.saveUser(user)
+//      })
+//
+//
+//    }
+//
+//    println(body)
 
-    if (body.contains("access_token")) {
-
-      val userOption = body.get("user").foreach(u => {
-
-        println(u)
 
 
-        val user = decode[User](u).getOrElse(User.empty)
-
-        val repo = AwsRepository.apply
-
-        repo.saveUser(user)
-      })
-
-
-    }
-
-    println(body)
-
-
-
-    Ok(body)
+    Ok(res.body)
   }
 }
 
