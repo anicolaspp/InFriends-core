@@ -5,27 +5,12 @@
 
 package com.nico.infriends.core.endpoints
 
-import com.nico.infriends.core.repositories.{User, AwsRepository}
-import com.twitter.util.Try
-import io.circe.Json
-import io.finch._
+import com.nico.infriends.core.repositories.{AwsRepository, User}
 import com.twitter.finagle.http.Status
-
-import io.finch.circe._
-import io.circe.syntax._
-
-import io.circe.{Json, Encoder}
-
-import io.circe._, io.circe.syntax._
-import io.circe._
-import io.circe.syntax._
-
-import io.circe._, io.circe.generic.auto._, io.circe.parser._, io.circe.syntax._
-import io.circe._
+import io.circe.Json
 import io.circe.generic.auto._
 import io.circe.parser._
-import io.circe.syntax._
-
+import io.finch._
 
 trait AuthApi {
 
@@ -57,6 +42,8 @@ trait AuthApi {
     if (map.contains("access_token")) {
       val userStr = map.getOrElse("user", Json.Null)
       val user = decode[User](userStr.toString()).getOrElse(User.empty)
+
+      println(user)
 
       AwsRepository.apply.saveUser(user)
     }
