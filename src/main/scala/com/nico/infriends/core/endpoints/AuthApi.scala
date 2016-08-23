@@ -6,11 +6,25 @@
 package com.nico.infriends.core.endpoints
 
 import com.nico.infriends.core.repositories.{User, AwsRepository}
+import com.twitter.util.Try
 import io.circe.Json
 import io.finch._
 import com.twitter.finagle.http.Status
 
 import io.finch.circe._
+import io.circe.syntax._
+
+import io.circe.{Json, Encoder}
+
+import io.circe._, io.circe.syntax._
+import io.circe._
+import io.circe.syntax._
+
+import io.circe._, io.circe.generic.auto._, io.circe.parser._, io.circe.syntax._
+import io.circe._
+import io.circe.generic.auto._
+import io.circe.parser._
+import io.circe.syntax._
 
 
 trait AuthApi {
@@ -45,7 +59,8 @@ trait AuthApi {
 
         println(u)
 
-        val user = io.circe.jackson.decode[User](u).getOrElse(User.empty)
+
+        val user = decode[User](u).getOrElse(User.empty)
 
         val repo = AwsRepository.apply
 

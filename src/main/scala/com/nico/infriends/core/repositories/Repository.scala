@@ -7,6 +7,7 @@ package com.nico.infriends.core.repositories
 
 import awscala._, s3._
 import com.amazonaws.services.s3.model.ObjectMetadata
+import com.nico.infriends.core.endpoints.Env
 
 trait Repository {
 
@@ -42,9 +43,8 @@ object AwsRepository {
 
     override def saveUser(user: User): AWS_KEY = {
 
-      val s3 = S3("AKIAIRSPARR6CMXHFC2Q", "rv9IbIU2Od9PA8y3AulN2oWj1SpjizoEB6ocStnr")(Region.default())
-
-
+      val s3 = S3(Env.getEnv.awsKey, Env.getEnv.awsSecret)(Region.default())
+      
       s3.put(Bucket("infriends"), user.id, user.username.getBytes, new ObjectMetadata())
 
       "100"

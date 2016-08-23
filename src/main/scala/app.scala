@@ -30,11 +30,12 @@ object app extends HelloApi
 
   def main(args: Array[String]) {
     val port = Option(System.getProperty("http.port")) getOrElse "9080"
-//    val e = Env(System.getenv("CLIENT_ID"), System.getenv("CLIENT_SECRET"), System.getenv("URL"))
-
-    val e = Env("3e4dff94fc1e42c99544d271113a3773",
-      "4140e98fb6ab4f31bca333b1ab63cf64",
-      "http://infriends-core.herokuapp.com/push")
+    val e = Env(System.getenv("CLIENT_ID"),
+      System.getenv("CLIENT_SECRET"),
+      System.getenv("URL"),
+      System.getenv("AWS_Key"),
+      System.getenv("AWS_SECRET")
+    )
 
     println("ENV")
     println(e)

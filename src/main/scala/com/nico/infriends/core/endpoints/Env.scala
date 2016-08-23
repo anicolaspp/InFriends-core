@@ -8,21 +8,28 @@ trait Env {
   def   clientId: String
   def   clientSecret: String
   def   redirectURL: String
+  def   awsKey: String
+  def   awsSecret: String
 }
 
 object Env {
 
   private var env: Env = null
 
-  def apply(clientId: String, clientSecret: String, redirectURL: String) = {
+  def apply(clientId: String, clientSecret: String, redirectURL: String, awsKey: String,
+  awsSecret: String) = {
 
-    env =  EnvImp(clientId, clientSecret, redirectURL)
+    env =  EnvImp(clientId, clientSecret, redirectURL, awsKey, awsSecret)
 
     env
   }
 
   def getEnv: Env = env
 
-  case class EnvImp( clientId: String,  clientSecret: String, redirectURL: String) extends Env
+  case class EnvImp(clientId: String,
+                    clientSecret: String,
+                    redirectURL: String,
+                    awsKey: String,
+                    awsSecret: String) extends Env
 
 }
