@@ -9,16 +9,18 @@ import io.finch._
 import com.twitter.finagle.http.Status
 
 
-trait TokenApi {
+trait AuthApi {
 
-  def loging: Endpoint[Unit] = get("login") {
+  def authEndpoint = login :+: pushToken
+
+  private def login: Endpoint[Unit] = get("login") {
     Output
-        .unit(Status.Continue)
+        .unit(Status.SeeOther)
       .withHeader("Location" ->
         s"https://api.instagram.com/oauth/authorize/?client_id=${Env.getEnv.clientId}&redirect_uri=${Env.getEnv.redirectURL}&response_type=code")
   }
 
-  def pushToken: Endpoint[String] = get("push" :: param("code")) { code: String =>
+  private def pushToken: Endpoint[Map[String, String]] = get("push" :: param("code")) { code: String =>
 
     println(code)
 
@@ -28,7 +30,7 @@ trait TokenApi {
       "grant_type"    ->  "authorization_code",
       "redirect_uri"  ->  Env.getEnv.redirectURL,
       "code"          ->  code
-    )).asString
+    )).asParamMap
 
 
     Ok(res.body)
