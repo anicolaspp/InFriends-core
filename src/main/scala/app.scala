@@ -39,19 +39,7 @@ object app extends HelloApi
     println("ENV")
     println(e)
 
-
-
-    val aws: Endpoint[String] = get("put") {
-
-      val repo = AwsRepository.apply
-
-      val result = repo.saveUser(User())
-
-      Ok("OK")
-    }
-
-
-    val api = authEndpoint :+: aws
+    val api = authEndpoint
 
     Await.ready(Http.server.serve(s":$port", api.toService))
   }
