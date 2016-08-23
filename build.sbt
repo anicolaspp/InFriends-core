@@ -16,6 +16,8 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0" % "test"
 
 libraryDependencies +=  "org.scalaj" %% "scalaj-http" % "2.3.0"
 
+libraryDependencies += "com.github.seratch" %% "awscala" % "0.3.+"
+
 enablePlugins(JavaAppPackaging)
 
 mainClass in Universal := Some("com.nico.infriends.core.app")

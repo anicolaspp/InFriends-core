@@ -5,8 +5,12 @@
 
 package com.nico.infriends.core.endpoints
 
+import com.nico.infriends.core.repositories.{User, AwsRepository}
+import io.circe.Json
 import io.finch._
 import com.twitter.finagle.http.Status
+
+import io.finch.circe._
 
 
 trait AuthApi {
@@ -30,10 +34,31 @@ trait AuthApi {
       "grant_type"    ->  "authorization_code",
       "redirect_uri"  ->  Env.getEnv.redirectURL,
       "code"          ->  code
-    )).asString
+    )).asParamMap
 
 
-    Ok(res.body)
+    val body = res.body
+
+    if (body.contains("access_token")) {
+
+      val userOption = body.get("user").foreach(u => {
+
+        println(u)
+
+        val user = io.circe.jackson.decode[User](u).getOrElse(User.empty)
+
+        val repo = AwsRepository.apply
+
+        repo.saveUser(user)
+      })
+
+
+    }
+
+
+
+
+    Ok("OK")
   }
 }
 
