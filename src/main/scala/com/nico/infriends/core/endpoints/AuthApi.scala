@@ -51,6 +51,16 @@ trait AuthApi {
     )).asString
 
 
+    val json = parse(res.body).getOrElse(Json.Null)
+    val map = json.asObject.map(_.toMap).getOrElse(Map.empty)
+
+    if (map.contains("access_token")) {
+      val userStr = map.getOrElse("user", Json.Null)
+      val user = decode[User](userStr.toString()).getOrElse(User.empty)
+
+      AwsRepository.apply.saveUser(user)
+    }
+
 //    val body = res.body
 //
 //    if (body.contains("access_token")) {
