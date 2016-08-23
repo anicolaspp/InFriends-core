@@ -7,6 +7,7 @@ package com.nico.infriends.core.endpoints
 
 import com.nico.infriends.core.repositories.{AwsRepository, User}
 import com.twitter.finagle.http.Status
+import com.twitter.util.Future
 import io.circe.Json
 import io.circe.generic.auto._
 import io.circe.parser._
@@ -45,7 +46,9 @@ trait AuthApi {
 
       println(user)
 
-      AwsRepository.apply.saveUser(user)
+      Future {
+        AwsRepository.apply.saveUser(user)
+      }
     }
 
 //    val body = res.body

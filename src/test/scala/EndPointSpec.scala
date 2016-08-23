@@ -6,7 +6,8 @@
 package com.nico.infriends.core
 package tests
 
-import com.nico.infriends.core.repositories.{Repository, User}
+import com.nico.infriends.core.endpoints.Env
+import com.nico.infriends.core.repositories.{AwsRepository, Repository, User}
 import io.circe.Json
 import io.circe.generic.auto._
 import io.circe.parser._
@@ -44,7 +45,6 @@ class FirstTest extends FlatSpec with Matchers with Repository {
 
     user.username should be ("anicolaspp")
 
-  }
-
+  } 
 }
 

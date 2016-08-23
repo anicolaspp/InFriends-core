@@ -33,8 +33,11 @@ object app extends HelloApi
     val e = Env(System.getenv("CLIENT_ID"),
       System.getenv("CLIENT_SECRET"),
       System.getenv("URL"),
-      System.getenv("AWS_Key"),
-      System.getenv("AWS_SECRET")
+//      System.getenv("AWS_Key"),
+//      System.getenv("AWS_SECRET")
+
+      "AKIAJ3UPNH6OTVBIDV5Q",
+      "g+X1QMolF9NFu+crjfyX6vslmTsZAMCflhXDSgDA"
     )
 
     println("ENV")
