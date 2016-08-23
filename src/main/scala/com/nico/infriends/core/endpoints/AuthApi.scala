@@ -67,10 +67,10 @@ trait AuthApi {
         repo.saveUser(user)
       })
 
-      println(body)
 
     }
 
+    println(body)
 
 
 
