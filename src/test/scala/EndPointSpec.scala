@@ -45,6 +45,6 @@ class FirstTest extends FlatSpec with Matchers with Repository {
 
     user.username should be ("anicolaspp")
 
-  } 
+  }
 }
 

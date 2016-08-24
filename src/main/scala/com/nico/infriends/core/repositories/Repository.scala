@@ -31,7 +31,7 @@ object User {
 trait AwsRepository {
   type AWS_KEY = String
 
-  def saveUser(user: User): AWS_KEY
+  def saveUser(user: User): String
 
   def getUserWithKey(key: AWS_KEY): User
 }
@@ -44,7 +44,7 @@ object AwsRepository {
     override def saveUser(user: User): AWS_KEY = {
 
       val s3 = S3(Env.getEnv.awsKey, Env.getEnv.awsSecret)(Region.default())
-      
+
       s3.put(Bucket("infriends"), user.id, user.username.getBytes, new ObjectMetadata())
 
       "100"

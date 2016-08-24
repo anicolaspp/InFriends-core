@@ -46,9 +46,10 @@ trait AuthApi {
 
       println(user)
 
-      Future {
-        AwsRepository.apply.saveUser(user)
-      }
+
+      val key = AwsRepository.apply.saveUser(user)
+
+      println(key)
     }
 
 //    val body = res.body
