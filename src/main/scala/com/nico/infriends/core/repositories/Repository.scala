@@ -9,6 +9,8 @@ import awscala._, s3._
 import com.amazonaws.services.s3.model.ObjectMetadata
 import com.nico.infriends.core.endpoints.Env
 
+import scala.util.Try
+
 trait Repository {
 
   def hello() = "Hello, Word!"
@@ -31,24 +33,40 @@ object User {
 trait AwsRepository {
   type AWS_KEY = String
 
-  def saveUser(user: User): String
+  def saveUser(user: User): Option[String]
 
   def getUserWithKey(key: AWS_KEY): User
 }
 
 object AwsRepository {
 
-  def apply: AwsRepository = new AwsRepository {
-    override def getUserWithKey(key: AWS_KEY): User = User.empty
+  def apply: AwsRepository = new Repository
 
-    override def saveUser(user: User): AWS_KEY = {
 
-      val s3 = S3(Env.getEnv.awsKey, Env.getEnv.awsSecret)(Region.default())
+  class Repository extends AwsRepository {
+    //    override def getUserWithKey(key: AWS_KEY): User = User.empty
+    //
+    //    override def saveUser(user: User): Option[String] = {
+    //
+    //      val s3 = S3(Env.getEnv.awsKey, Env.getEnv.awsSecret)(Region.default())
+    //
+    //      s3.put(Bucket("infriends"), user.id, user.username.getBytes, new ObjectMetadata())
+    //
+    //      "100"
+    //    }
+    override def saveUser(user: User): Option[String] = {
 
-      s3.put(Bucket("infriends"), user.id, user.username.getBytes, new ObjectMetadata())
+      Try {
+        val s3 = S3(Env.getEnv.awsKey, Env.getEnv.awsSecret)(Region.default())
 
-      "100"
+        s3.put(Bucket("infriends"), user.id, user.username.getBytes, new ObjectMetadata())
+
+        "100"
+      }.toOption
     }
+
+    override def getUserWithKey(key: AWS_KEY): User = User.empty
   }
+
 }
 
